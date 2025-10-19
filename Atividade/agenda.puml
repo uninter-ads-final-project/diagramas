@@ -1,0 +1,70 @@
+@startuml
+---
+description:
+author: Wesley Benvindo
+release:
+license:
+version: 1.0.0
+---
+!include<archimate/Archimate>
+
+title
+    Diagrama de Atividade
+    Gestão de agenda (paciente)
+end title
+
+caption
+Desenvvolvido por
+Wesley Benvidno -RU: 4596063
+end caption
+
+!theme carbon-gray
+
+start
+
+:Acessa o sistema e navegar para
+ página de Minhas Consultas | agenda;
+split
+partition "Gerenciar Consultas"{
+note
+    O processo de confirmação
+    ou cancelamento não é automático
+    deverá sempre ser validado por um membro da equipe
+    após a validação o paciente será notificado
+    do estado da solicitação, em caso de cancelamento,
+    a consulta será cancelada automaticamente se
+    foi solicitada com ao menos 24 horas de antencedência.
+    Em caso de solicitação sempre precisará ser
+    feita uma validação por meio da equipe interna.
+    end note
+'    :Gerenciar Consultas;
+    split
+        :Solicitar nova consulta;
+        :Escolher a especialidade;
+        :Escolher a data e horário
+        (de preferência);
+        :Entrar com as informações
+         para a nova consulta
+         detalhes e motivos     ;
+
+    split again
+        :Cancelar agendamento;
+
+    end split
+
+    :Notificação com protocolo e
+     estado da solicitação;
+    :Alteração do estado na
+     agenda para pendente;
+     }
+split again
+   :Consultas passadas;
+   note right
+   Aqui será possível realizar todo o acompanhamento das consultas passadas
+   end note
+   :Filtrar por datas ou modalidae;
+   :Verificar detalhes da consulta;
+end split
+stop
+
+@enduml

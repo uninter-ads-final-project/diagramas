@@ -1,0 +1,57 @@
+@startuml
+---
+description:
+author: Wesley Benvindo
+release:
+license:
+version: 1.0.0
+---
+!include<archimate/Archimate>
+
+title
+    Diagrama de Atividade
+    Criação de conta (paciente)
+end title
+
+caption
+Desenvvolvido por
+Wesley Benvidno -RU: 4596063
+end caption
+
+!theme carbon-gray
+
+start
+
+:Acessa o sistema e navega até a página de atualização de perfil;
+:Preenche todas as informações faltantes;
+if (Informação obrigatória?) is (Sim) then
+  :Preenche esta informação
+   com o respectivo dado;
+  note
+  Nome completo,
+  Endereço,
+  1º contato de emergência,
+  CPF ou passaporte para estrangeiros
+  Fotografia
+  Idade
+  Sexo
+  Genero
+  end note
+else (Não)
+  :Pode avançar sem estas
+  informações preenchidas;
+  note right
+  outros contatos de emergência,
+  Alergias,
+  Problemas crônicos,
+  Restrições de diversas (ex: religiosas)
+  Medicamentos regulares
+  Pronome de tratamento
+  Conjuge
+  Outros
+  end note
+endif
+:Salvar e sair da página de edição;
+end
+
+@enduml

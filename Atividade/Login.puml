@@ -1,0 +1,30 @@
+@startuml
+---
+description:
+author: Wesley Benvindo
+release:
+license:
+version: 1.0.0
+---
+
+
+!include<archimate/Archimate>
+
+title Diagrama de Atividade - Login
+caption Desenvvolvido por Wesley Benvindo -RU: 4596063
+!theme carbon-gray
+
+start
+:Insere nome de usuário;
+:Insere senha;
+if (Usuário e senha corretos?) is (sim) then
+  :Acessa o sistema;
+else (Não)
+  :Mensagem de erro);
+  note
+   Usuário ou senha incorreto
+   tentativas restantes 1 / 3
+  endnote
+endif
+end
+@enduml

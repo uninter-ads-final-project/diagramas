@@ -1,0 +1,48 @@
+@startuml
+---
+description:
+author: Wesley Benvindo
+release:
+license:
+version: 1.0.0
+---
+!include<archimate/Archimate>
+
+title
+    Diagrama de Atividade
+    Criação de conta (paciente)
+end title
+
+caption
+Desenvvolvido por
+Wesley Benvidno -RU: 4596063
+end caption
+
+!theme carbon-gray
+
+start
+:Loga no sistema com uma conta de equipe com privilégios de adicionar novo paciente;
+:Acessa a área de adicionar novo paciente;
+:Entra com informações de Nome completo, email, endereço e CPF;
+:Envia notificação via email solicitando ao paciente que faça o primeiro aceso aos sistema;
+:No primeiro acesso, realizar o cadastro da senha pessoal um pin de 4 dígitos e um sistema de autenticação de 2 fatores;
+:Realiza a verificaçção dos termos de privacidade, e tratamento de dados;
+note
+Pode ser apresentado mais do que um documento a ser verificado e aceite;
+Cada documento pode apresentar alguma permissão ou recusa,
+acarretando possíveis limitações no sistema
+end note
+if (Aceita?) is (Sim) then
+  :Segue para tela incial de uso do sistema;
+else (Não)
+  :Remove todos os dados do usuário do sistema e encerra a conta.;
+endif
+:Depois de cadastrado no sistema tanto pacientes quanto equipe poderá realizar uploads de prontuários médicos, e atualizar o perfil com informações extras;
+note right
+Algumas atividades são restritas à equipe dos hospitais,
+ex: cadastrar prontuários médicos, receitas, atestados, etc;
+Há a possibilidade (futura) do paciente solicitar
+inclusão de informações provenientes de hospitais fora da rede)
+end note
+end
+@enduml
