@@ -1,0 +1,47 @@
+@startuml
+---
+description:
+author: Wesley Benvindo
+release:
+license:
+version: 1.0.0
+---
+!include<archimate/Archimate>
+
+title
+    Diagrama de Atividade
+    Gestão de agenda (paciente)
+end title
+
+caption
+Desenvvolvido por
+Wesley Benvidno -RU: 4596063
+end caption
+
+!theme carbon-gray
+
+
+start
+:Fazer login no sistema;
+:Vai a listagem (pesquisa) de pacientes;
+:Seleciona um paciente;
+
+    if (Informação Pessoal?) then (Sim)
+        :Seleciona editar paciente;
+    else
+        :Seleciona inserir tipo;
+        note right
+        Tipo pode ser:
+        Consulta,
+        Receitas,
+        Atestados,
+        Resultados de exames
+        dentre outros;
+        end note
+    end if
+
+    :Preenche as informações necessárioas;
+    :Salvar;
+stop
+
+@enduml

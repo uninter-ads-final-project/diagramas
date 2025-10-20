@@ -1,0 +1,43 @@
+@startuml
+---
+description:
+author: Wesley Benvindo
+release:
+license:
+version: 1.0.0
+---
+!include<archimate/Archimate>
+
+title
+    Diagrama de Atividade
+    Gestão de agenda (paciente)
+end title
+
+caption
+Desenvvolvido por
+Wesley Benvidno -RU: 4596063
+end caption
+
+!theme carbon-gray
+
+
+start
+:Fazer login no sistema;
+:Ir à página minhas consultas;
+
+if (Há uma teleconsulta agendada ?) then (Sim)
+
+    :Solicita entrada na sala virtual de consulta;
+    repeat :Aguarda aprovação para entrada na sala virtual de consulta
+    repeat while (O profissional de saúde já está na sala virtual?) is (Não) not (Sim)
+      :Inicia a consulta;
+else (false)
+stop
+endif
+
+:Finaliza a consulta;
+:Recebe notificação por email com protocolo da consulta e documentos, como receitas, encaminhamentos;
+
+stop
+
+@enduml
