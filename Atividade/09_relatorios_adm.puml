@@ -1,0 +1,48 @@
+@startuml
+---
+description:
+author: Wesley Benvindo
+release:
+license:
+version: 1.0.0
+---
+!include<archimate/Archimate>
+
+title
+    Diagrama de Atividade
+    Emissão de relatórios (Administradores)
+end title
+
+caption
+Desenvvolvido por
+Wesley Benvidno -RU: 4596063
+end caption
+
+!theme carbon-gray
+
+
+start
+:Loga no sistema com uma conta de adminstrador;
+:Navega até a página onde pode fazer a gestão de relatório;
+:Seleciona emitir novo relatório;
+:Seleciona o tipo e os dados que irão compor este relaórios;
+note
+Aqui pode ser selecionado por exemplo:
+Equipe e relacionar as horas mensais de trabalho,
+Ou ainda as internações e relacionar com
+as datas de maior e menor demanda;
+end note
+if (Há templetes disponíves?) then (Sim)
+    if(Selecioanr template?) then (Sim)
+    :Aplica o template de exportação;
+    else
+        :Selecioana o formato de saída (csv, xlsx);
+    end if
+    else
+    :Selecioana o formato de saída (csv, xlsx);
+end if
+    :Exporta os dados sem aplicar modelo;
+
+stop
+
+@enduml
