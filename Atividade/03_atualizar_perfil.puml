@@ -10,7 +10,7 @@ version: 1.0.0
 
 title
     Diagrama de Atividade
-    Criação de conta (paciente)
+    Atualização de perfil (Profissional da saúde | Administradores | Paciente)
 end title
 
 caption

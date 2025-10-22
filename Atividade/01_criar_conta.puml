@@ -10,7 +10,7 @@ version: 1.0.0
 
 title
     Diagrama de Atividade
-    Criação de conta (profissional da saúde)
+    Criação de conta (Profissional da saúde | Administradores | Paciente)
 end title
 
 caption
@@ -21,10 +21,13 @@ end caption
 !theme carbon-gray
 
 start
+note :Profissionais de saúde e administradores
 :Loga no sistema com uma conta de equipe com privilégios de adicionar novo paciente;
+start
+note :Pacitentes não cadastrados
 :Acessa a área de adicionar novo paciente;
 :Entra com informações de Nome completo, email, endereço e CPF;
-:Envia notificação via email solicitando ao paciente que faça o primeiro aceso aos sistema;
+:Envia notificação via email solicitando ao paciente que faça o primeiro aceso aos sistema (validação do email);
 :No primeiro acesso, realizar o cadastro da senha pessoal um pin de 4 dígitos e um sistema de autenticação de 2 fatores;
 :Realiza a verificaçção dos termos de privacidade, e tratamento de dados;
 note

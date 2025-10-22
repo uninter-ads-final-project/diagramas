@@ -10,7 +10,7 @@ version: 1.0.0
 
 title
     Diagrama de Atividade
-    Gestão de agenda (paciente)
+    Gestão de consultas (paciente)
 end title
 
 caption
@@ -22,7 +22,7 @@ end caption
 
 start
 
-:Acessa o sistema e navegar para
+:Acessa o sistema e navega para
  página de Minhas Consultas | agenda;
 split
 partition "Gerenciar Consultas"{

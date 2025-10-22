@@ -1,0 +1,48 @@
+@startuml
+---
+description:
+author: Wesley Benvindo
+release:
+license:
+version: 1.0.0
+---
+!include<archimate/Archimate>
+
+title
+    Diagrama de Atividade
+    Gestão de Intenações (Sistema | Administradores)
+end title
+
+caption
+Desenvvolvido por
+Wesley Benvidno -RU: 4596063
+end caption
+
+!theme carbon-gray
+
+
+start
+:Loga no sistema com uma conta de adminstrador;
+:Navega até a página onde pode fazer a gestão dos leitos disponíveis para internações;
+
+partition Aprovação de interanções {
+
+    while (Há Novas internação para aprovar?) is (Sim)
+        while (Há leitos livres?) is (Sim)
+            while (Os requisitos para internação são atendidos) is (Não)
+                :Solicita revisão para os dados ou elementos faltantes;
+            endwhile (Sim)
+                :A internação é aprovada;
+                if (Ainda há leitos livres?) then (Sim)
+                    stop
+                else (Não)
+                end if
+            endwhile (Não)
+                    :Recusa a solicitações em aberto;
+                    :Bloqueia a solicitação de novas interanções;
+    endwhile (Não)
+
+}
+stop
+
+@enduml

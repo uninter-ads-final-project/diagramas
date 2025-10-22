@@ -10,7 +10,8 @@ version: 1.0.0
 
 title
     Diagrama de Atividade
-    Gestão de agenda (paciente)
+    Gestão de prontuário
+    (Profissiona da saúde | Administradores)
 end title
 
 caption

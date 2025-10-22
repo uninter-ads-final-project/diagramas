@@ -1,0 +1,38 @@
+@startuml
+---
+description:
+author: Wesley Benvindo
+release:
+license:
+version: 1.0.0
+---
+!include<archimate/Archimate>
+
+title
+    Diagrama de Atividade
+    Gestão de agenda (Profissional de Saúde)
+end title
+
+caption
+Desenvvolvido por
+Wesley Benvidno -RU: 4596063
+end caption
+
+!theme carbon-gray
+
+
+start
+:Fazer login no sistema;
+:Ir à página minhas consultas;
+
+:Entra na sala virtual de consulta;
+:Faz a aprovação para entrada na sala virtual de consulta de quais quer pacientes a espera;
+:Inicia a consulta;
+
+:Finaliza a consulta;
+:Preenche os relatórios e formulários sobre a consulta;
+:Envia notificação por email com protocolo da consulta e documentos, como receitas, encaminhamentos;
+
+stop
+
+@enduml
