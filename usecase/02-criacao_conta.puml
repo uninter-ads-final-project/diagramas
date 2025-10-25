@@ -1,0 +1,46 @@
+@startuml
+@startuml
+---
+description:
+author: Wesley Benvindo
+release:
+license:
+version: 1.0.0
+---
+!include<archimate/Archimate>
+
+'header: Casos de uso geral
+
+title
+    Diagrama de Caso
+    Criação de conta
+end title
+
+caption
+Desenvvolvido por
+Wesley Benvidno -RU: 4596063
+end caption
+
+!theme carbon-gray
+skinparam actorStyle awesome
+
+actor #a7a6ba Paciente <<User>> as pc
+actor #5e716a System <<System>> as sys
+'actor #b2beb5 Administrador <<User>> as adm
+actor #36454f "Profissional de saúde" <<User>> as pf
+
+(Criar conta para novo paciente) as signOn
+
+pc --> signOn
+'note left of signOn
+'Caso a conta seja feita por
+'um profissional de
+'saúde já é aprovada de imediato.
+'end note
+pf --> signOn
+
+signOn .. sys
+sys .. (Envia notificaçõs sobre alterações na conta)
+
+
+@enduml

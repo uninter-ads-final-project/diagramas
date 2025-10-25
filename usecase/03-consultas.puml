@@ -1,0 +1,50 @@
+@startuml
+---
+description:
+author: Wesley Benvindo
+release:
+license:
+version: 1.0.0
+---
+!include<archimate/Archimate>
+
+'header: Casos de uso geral
+
+title
+    Diagrama de Caso
+    Consultas e teleconsultas
+end title
+
+caption
+Desenvvolvido por
+Wesley Benvidno -RU: 4596063
+end caption
+
+!theme carbon-gray
+skinparam actorStyle awesome
+
+actor #a7a6ba Paciente <<User>> as pc
+actor #5e716a System <<System>> as sys
+'actor #b2beb5 Administrador <<User>> as adm
+actor #36454f "Profissional de saúde" <<User>> as pf
+
+(Solicita contulsta ou teleconsulta) as stlc
+(Aprova contulsta ou teleconsulta) as atlc
+(Participa em contulsta ou teleconsulta) as ptlc
+(Notifica sobre a existencias de contulsta ou teleconsulta) as vrExTlc
+
+pc --> stlc
+pf --> atlc
+
+pc --> ptlc
+pf --> ptlc
+
+sys --> ptlc
+sys --> vrExTlc
+
+vrExTlc ..> pc
+vrExTlc ..> pf
+
+
+
+@enduml

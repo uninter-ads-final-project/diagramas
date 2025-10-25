@@ -1,0 +1,58 @@
+@startuml
+---
+description:
+author: Wesley Benvindo
+release:
+license:
+version: 1.0.0
+---
+!include<archimate/Archimate>
+
+'header: Casos de uso geral
+
+title
+    Diagrama de Caso
+    Consultas e teleconsultas
+end title
+
+caption
+Desenvvolvido por
+Wesley Benvidno -RU: 4596063
+end caption
+
+!theme carbon-gray
+skinparam actorStyle awesome
+
+actor #a7a6ba Paciente <<User>> as pc
+actor #5e716a System <<System>> as sys
+actor #b2beb5 Administrador <<User>> as adm
+actor #36454f "Profissional de saúde" <<User>> as pf
+
+(Necessidade de nova internação) as nni
+(Solicita nova internação) as sni
+(Aprova nova internação) as ani
+(Recusa nova Internação) as rni
+(Notifica sobre novas Internações) as nsni
+
+pc -> nni
+nni .. pf
+
+pf --> sni
+sni .. adm
+
+adm --> ani
+adm --> rni
+
+sys -> rni
+ani <- sys
+
+sys --> nsni
+
+nsni .>adm
+nsni .> pc
+nsni .>pf
+
+
+
+
+@enduml

@@ -1,0 +1,37 @@
+@startuml
+@startuml
+---
+description:
+author: Wesley Benvindo
+release:
+license:
+version: 1.0.0
+---
+!include<archimate/Archimate>
+
+'header: Casos de uso geral
+
+title
+    Diagrama de Caso
+    Definição dos Atores
+end title
+
+caption
+Desenvvolvido por
+Wesley Benvidno -RU: 4596063
+end caption
+
+!theme carbon-gray
+skinparam actorStyle awesome
+
+actor #a7a6ba Paciente <<User>> as pc
+
+package Hospital {
+    actor #5e716a System <<System>> as sys
+    actor #b2beb5 Administrador <<User>> as adm
+    actor #36454f "Profissional de saúde" <<User>> as pf
+}
+
+
+
+@enduml
