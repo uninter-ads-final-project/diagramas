@@ -11,7 +11,7 @@ version: 1.0.0
 !include<archimate/Archimate>
 
 title Diagrama de Atividade - Login
-caption Desenvvolvido por Wesley Benvindo -RU: 4596063
+caption Desenvolvido por Wesley Benvindo -RU: 4596063
 !theme carbon-gray
 
 start

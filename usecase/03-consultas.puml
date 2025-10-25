@@ -16,7 +16,7 @@ title
 end title
 
 caption
-Desenvvolvido por
+Desenvolvido por
 Wesley Benvidno -RU: 4596063
 end caption
 
@@ -28,10 +28,10 @@ actor #5e716a System <<System>> as sys
 'actor #b2beb5 Administrador <<User>> as adm
 actor #36454f "Profissional de saúde" <<User>> as pf
 
-(Solicita contulsta ou teleconsulta) as stlc
-(Aprova contulsta ou teleconsulta) as atlc
-(Participa em contulsta ou teleconsulta) as ptlc
-(Notifica sobre a existencias de contulsta ou teleconsulta) as vrExTlc
+(Solicita consulta ou teleconsulta) as stlc
+(Aprova consulta ou teleconsulta) as atlc
+(Participa em consulta ou teleconsulta) as ptlc
+(Notifica sobre a existencias de consulta ou teleconsulta) as vrExTlc
 
 pc --> stlc
 pf --> atlc
