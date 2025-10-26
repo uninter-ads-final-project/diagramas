@@ -1,5 +1,4 @@
 @startuml
-@startuml
 ---
 description:
 author: Wesley Benvindo
@@ -31,7 +30,5 @@ package Hospital {
     actor #b2beb5 Administrador <<User>> as adm
     actor #36454f "Profissional de saúde" <<User>> as pf
 }
-
-
 
 @enduml

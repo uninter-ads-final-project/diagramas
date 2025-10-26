@@ -1,0 +1,214 @@
+@startuml
+---
+description:
+author: Wesley Benvindo
+release:
+license:
+version: 1.0.0
+---
+!include<archimate/Archimate>
+
+title
+    Diagrama de Classe
+    Usuários (user), Perfil (profile) e Equipes (roles)
+end title
+
+caption
+Desenvolvido por
+Wesley Benvidno -RU: 4596063
+end caption
+
+'!theme carbon-gray
+
+left to right direction
+
+class User {
+-id:Integer
+-username: String
+-password: String
+-profiles: List<Perfil>
+-roles: List<Roles>
+
++getId(): Integer
++setId(id: Integer): void
++getUsername(): String
++setUsername(username: String): void
++getPassword(): String
++setPassword(password: String): void
++getProfiles(): List<Perfil>
++setProfiles(profiles: List<Perfil>): void
++getRoles(): List<Roles>
++setRoles(roles: List<Roles>): void
+}
+
+class Roles{
+-id: Integer
+-name: String
+-description: String
+'-group: Group
+-claims: List<Claim>
+
++getId(): Integer
++setId(id: Integer): void
++getName(): String
++setName(name: String): void
++getDescription(): String
++setDescription(description: String): void
+'+getGroup(): Group
+'+setGroup(group: Group): void
++getClaims(): List<Claim>
++setClaims(claims: List<Claim>): void
+}
+
+class Claim{
+-id:Integer
+-name:String
+-description:String
+
++getId(): Integer
++setId(id: Integer): void
++getName(): String
++setName(name: String): void
++getDescription(): String
++setDescription(description: String): void
+}
+
+abstract class Perfil{
+  -id: Integer
+  -name: String
+  -description: String
+
+  +getId(): Integer
+  +setId(id: Integer): void
+  +getName(): String
+  +setName(name: String): void
+  +getDescription(): String
+  +setDescription(description: String): void
+}
+
+class PacienteProfile extends Perfil {
+  -address1: String
+  -address2: String
+  -contact1: String
+  -contact2: String
+  -medicalHistory: List<HistoricoMedico>
+
+  +getAddress1(): String
+  +setAddress1(address1: String): void
+  +getAddress2(): String
+  +setAddress2(address2: String): void
+  +getContact1(): String
+  +setContact1(contact1: String): void
+  +getContact2(): String
+  +setContact2(contact2: String): void
+  +getMedicalHistory(): List<HistoricoMedico>
+  +setMedicalHistory(medicalHistory: List<HistoricoMedico>): void
+}
+
+class ProfissionalSaudeProfile extends PacienteProfile {
+  -license: String
+  -licenseExpiration: Date
+  -specialities: List<EspecialidadeMedica>
+  -contact1: String
+  -contact2: String
+  -hospitals: List<Hospital>
+
+  +getLicense(): String
+  +setLicense(license: String): void
+  +getLicenseExpiration(): Date
+  +setLicenseExpiration(licenseExpiration: Date): void
+  +getSpecialities(): List<EspecialidadeMedica>
+  +setSpecialities(specialities: List<Speciality>): void
+  +getContact1(): String
+  +setContact1(contact1: String): void
+  +getContact2(): String
+  +setContact2(contact2: String): void
+  +getHospitals(): List<Hospital>
+  +setHospitals(hospitals: List<Hospital>): void
+}
+
+class AdminProfile extends ProfissionalSaudeProfile {
+  -adminLevel: String
+  -permissions: List<String>
+'  -department: String
+
+  +getAdminLevel(): String
+  +setAdminLevel(adminLevel: String): void
+  +getPermissions(): List<String>
+  +setPermissions(permissions: List<String>): void
+'  +getDepartment(): String
+'  +setDepartment(department: String): void
+}
+class Hospital {
+  -id: Integer
+  -name: String
+  -address: String
+  -phone: String
+  -email: String
+
+  +getId(): Integer
+  +setId(id: Integer): void
+  +getName(): String
+  +setName(name: String): void
+  +getAddress(): String
+  +setAddress(address: String): void
+  +getPhone(): String
+  +setPhone(phone: String): void
+  +getEmail(): String
+  +setEmail(email: String): void
+}
+
+class EspecialidadeMedica {
+  -id: Integer
+  -name: String
+  -description: String
+  -code: String
+
+  +getId(): Integer
+  +setId(id: Integer): void
+  +getName(): String
+  +setName(name: String): void
+  +getDescription(): String
+  +setDescription(description: String): void
+  +getCode(): String
+  +setCode(code: String): void
+}
+
+class HistoricoMedico {
+  -id: Integer
+  -patientId: Integer
+  -date: Date
+  -diagnosis: String
+  -treatment: String
+  -medications: List<String>
+  -notes: String
+  -doctorId: Integer
+
+  +getId(): Integer
+  +setId(id: Integer): void
+  +getPatientId(): Integer
+  +setPatientId(patientId: Integer): void
+  +getDate(): Date
+  +setDate(date: Date): void
+  +getDiagnosis(): String
+  +setDiagnosis(diagnosis: String): void
+  +getTreatment(): String
+  +setTreatment(treatment: String): void
+  +getMedications(): List<String>
+  +setMedications(medications: List<String>): void
+  +getNotes(): String
+  +setNotes(notes: String): void
+  +getDoctorId(): Integer
+  +setDoctorId(doctorId: Integer): void
+}
+
+User::profiles"1..*" }|--|{ "1..*" Perfil::id :Têm
+User::roles "1..*" }|--o{ "0..*" Roles::id :Pertence
+Roles::claims "0..*" }o--o{ "0..*" Claim::id
+
+PacienteProfile::medicalHistory"0..*" }o--o{ "0..*"HistoricoMedico::id :Possui
+
+ProfissionalSaudeProfile::hospitals }|--|{ Hospital::id :Atende
+ProfissionalSaudeProfile::specialities }|--|{ EspecialidadeMedica::id :possui
+
+@enduml
